@@ -26,7 +26,7 @@ private:
     void findWordMatches(const string& text, const vector<string>& words, vector<vector<int>>& wordMatches) {
         for (const auto& word : words) {
             vector<int>& indexes = charToStartIndexes[word[0] - 'a'];
-            for (int index : indexes) {
+            for (const auto& index : indexes) {
                 if (text.substr(index, word.length()).find(word) != text.npos) {
                     wordMatches.push_back(vector<int>{index, index + static_cast<int> (word.length()) - 1});
                 }
